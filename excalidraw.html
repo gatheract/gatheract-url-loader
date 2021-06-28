@@ -6,7 +6,7 @@
             function loadUrl() {
                 //https://excalidraw.com/#room=gatheract331564caf33,1j-gatheractwH4uS9dc44
                 hash = "";
-                while(length(hash < 12)) {
+                while(hash.length < 12) {
                     hash+=btoa(gatheract.channelId);
                 }
                 window.location = 'https://excalidraw.com/#room=gatheract'+hash.substring(0,11)+',1j-gatheract' + hash.substring(str.length - 10);
