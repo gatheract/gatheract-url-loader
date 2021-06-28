@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script src="https://gatheract.com/api.js"></script>
+        <script>
+            function hashCode() {
+                var hash = 0, i, chr;
+                if (this.length === 0) return hash;
+                for (i = 0; i < this.length; i++) {
+                    chr   = this.charCodeAt(i);
+                    hash  = ((hash << 5) - hash) + chr;
+                    hash |= 0; // Convert to 32bit integer
+                }
+                return hash;
+                };
+
+            function loadUrl() {
+                //https://excalidraw.com/#room=gatheract331564caf33,1j-gatheractwH4uS9dc44
+                hash=hashCode(gatheract.channelId)
+                window.location = 'https://excalidraw.com/#room=gatheract'+hash.substring(0,11)+',1j-gatheract' + hash.substring(str.length - 10);
+            }
+
+            let config = {
+                appId: 'url-loader-excalidraw',
+                events: {
+                    connected: event => { },
+                    channelInfo: event => {
+                        if (event.newUser) loadUrl();
+                    },
+                    appMessage: event => { }
+                }
+            };
+
+            gatheract.init(config);
+        </script>
+        <style>
+            body {
+                background-color: black;
+                font-size: 75px;
+                color:white;
+                text-align: center!important;
+            }
+        </style>
+    </head>
+    <body>
+        Loading...
+    </body>
+</html>
