@@ -9,7 +9,7 @@
                 while(hash.length < 12) {
                     hash+=btoa(gatheract.channelId);
                 }
-                window.location = 'https://excalidraw.com/#room=gatheract'+hash.substring(0,11)+',1j-gatheract' + hash.substring(str.length - 10);
+                window.location = 'https://excalidraw.com/#room=gatheract'+hash.substring(0,11)+',1j-gatheract' + hash.substring(hash.length - 10);
             }
 
             let config = {
